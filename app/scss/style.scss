@@ -4,6 +4,10 @@
     --green: #00ff96;
     --red: #e22c1d;
     --purple: #7747e5;
+
+    --sb-track-color: rgba(0, 0, 0, 0.1);
+    --sb-thumb-color: rgba(255, 255, 255, 0.1);
+    --sb-size: 3px;
 }
 
 html {
@@ -75,7 +79,7 @@ body {
 }
 
 .header {
-    margin-bottom: 58px;
+    margin-bottom: 50px;
 
     &__wrapper {
         display: flex;
@@ -96,6 +100,8 @@ body {
         cursor: pointer;
         border-radius: 12px;
         border: 1px solid transparent;
+        max-width: 151px;
+        width: 100%;
 
         &:hover {
             background: rgba(255, 255, 255, 0.05);
@@ -116,6 +122,25 @@ body {
 }
 
 .menu {
+    padding-bottom: 8px;
+    overflow-x: auto;
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+
+    &::-webkit-scrollbar {
+        width: var(--sb-size);
+        height: var(--sb-size);
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 10px;
+    }
+
     &__list {
         display: flex;
         gap: 6px;
@@ -147,6 +172,7 @@ body {
             font-size: 18px;
             font-weight: 500;
             line-height: 30px;
+            width: max-content;
         }
     }
 }
@@ -238,8 +264,9 @@ body {
     }
 
     &__item {
-        width: 244px;
-        height: 244px;
+        max-width: 244px;
+        width: 100%;
+        height: auto;
         border-radius: 25px;
         cursor: pointer;
         position: relative;
@@ -259,6 +286,7 @@ body {
             border-radius: 25px;
             position: relative;
             z-index: -1;
+            vertical-align: middle;
         }
 
         &-stickers {
